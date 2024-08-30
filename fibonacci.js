@@ -13,13 +13,15 @@ function fibs (n) {
 }
 
 function fibRec (n) {
-  let array = [0, 1]
-  if (n == 0) return 0
-  if (n == 1) return 1
-  for (let i = 2; i < n; i++) {
-    array[i] = array[i - 2] + array[i - 1]
+  return n <= 1 ? n : fibRec(n - 1) + fibRec(n - 2)
+}
+
+function arrayOfFibonacci (n) {
+  let array = []
+  for (let i = 0; i < n; i++) {
+    array[i] = fibRec(i)
   }
   return array
 }
 
-console.log(fibRec(5))
+console.log(arrayOfFibonacci(7))
